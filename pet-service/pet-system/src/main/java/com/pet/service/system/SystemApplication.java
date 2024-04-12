@@ -1,7 +1,7 @@
-package com.pet;
+package com.pet.service.system;
 
 
-public class Main {
+public class SystemApplication {
     public static void main(String[] args) {
         System.out.println("Hello world!");
     }
