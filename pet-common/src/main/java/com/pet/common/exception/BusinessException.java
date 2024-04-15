@@ -10,8 +10,6 @@ import lombok.Getter;
 @Getter
 public class BusinessException extends RuntimeException {
 
-    
-
     /**
      * 异常信息
      */

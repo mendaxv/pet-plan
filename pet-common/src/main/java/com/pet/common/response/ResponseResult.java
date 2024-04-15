@@ -74,4 +74,8 @@ public class ResponseResult<T> implements Serializable {
     public static <T> ResponseResult<T> error() {
         return error(ResponseResultEnum.ERROR.getCode(), ResponseResultEnum.ERROR.getMsg());
     }
+
+    public static <T> ResponseResult<T> error(String message) {
+        return error(ResponseResultEnum.ERROR.getCode(), message);
+    }
 }
