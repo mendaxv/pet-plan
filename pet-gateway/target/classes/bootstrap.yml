@@ -1,0 +1,13 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: pet-gateway
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: f8ee4331-a4e3-430a-be68-0817025a0ce6
+        file-extension: yml
+        username: nacos
+        password: nacos

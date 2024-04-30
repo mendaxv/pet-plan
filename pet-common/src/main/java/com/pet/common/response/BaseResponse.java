@@ -1,55 +1,39 @@
 package com.pet.common.response;
 
+import lombok.Data;
+
+import java.io.Serializable;
+
 /**
  * @author zw
  * @date 2024/4/12 17:37
- * @description
+ * @description 统一返回类
  */
-public class BaseResponse {
-
-    public static <T> ResponseResult<T> success(T data) {
-        return success(ResponseResultEnum.SUCCESS.getCode(), ResponseResultEnum.SUCCESS.getMsg(), data);
-    }
-
-    public static <T> ResponseResult<T> success() {
-        return success(ResponseResultEnum.SUCCESS.getCode(), ResponseResultEnum.SUCCESS.getMsg(), null);
-    }
-
-    public static <T> ResponseResult<T> error(ResponseResultEnum responseResultEnum) {
-        return error(responseResultEnum.getCode(), responseResultEnum.getMsg());
-    }
-
-    public static <T> ResponseResult<T> error() {
-        return error(ResponseResultEnum.ERROR.getCode(), ResponseResultEnum.ERROR.getMsg());
-    }
+@Data
+public class BaseResponse<T> implements Serializable {
 
     /**
-     * 响应成功
-     *
-     * @param code 状态码
-     * @param message 描述
-     * @param data 数据
-     * @return ResponseResult
+     * 状态码
      */
-    private static <T> ResponseResult<T> success(Integer code, String message, T data) {
-        ResponseResult<T> response = new ResponseResult<>();
-        response.setCode(code);
-        response.setMsg(message);
-        response.setData(data);
-        return response;
-    }
+    private int code;
 
     /**
-     * 响应失败
-     *
-     * @param code 状态码
-     * @param message 描述
-     * @return ResponseResult
+     * 数据
      */
-    private static <T> ResponseResult<T> error(Integer code, String message) {
-        ResponseResult<T> response = new ResponseResult<>();
-        response.setCode(code);
-        response.setMsg(message);
-        return response;
+    private T data;
+
+    /**
+     * 描述
+     */
+    private String message;
+
+    public BaseResponse(int code, T data, String message) {
+        this.code = code;
+        this.data = data;
+        this.message = message;
+    }
+
+    public BaseResponse(ResultCode resultCode) {
+        this(resultCode.getCode(), null, resultCode.getMessage());
     }
 }

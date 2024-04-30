@@ -1,7 +1,8 @@
 package com.pet.common.exception;
 
 import cn.hutool.core.exceptions.ExceptionUtil;
-import com.pet.common.response.ResponseResult;
+import com.pet.common.response.BaseResponse;
+import com.pet.common.response.ResultUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -15,15 +16,15 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    /**
-     * 全局异常
-     *
-     * @param e 异常
-     * @return ResponseResult
-     */
+    @ExceptionHandler(BusinessException.class)
+    public BaseResponse<Void> businessExceptionHandler(BusinessException e) {
+        log.error("businessException: " + e.getMessage(), e);
+        return ResultUtils.error(e.getCode(), e.getMessage());
+    }
+
     @ExceptionHandler(Exception.class)
-    public ResponseResult exceptionHandler(Exception e) {
+    public BaseResponse<Void> exceptionHandler(Exception e) {
         log.error("系统异常：{}", ExceptionUtil.getMessage(e));
-        return ResponseResult.error();
+        return ResultUtils.error(e.getMessage());
     }
 }

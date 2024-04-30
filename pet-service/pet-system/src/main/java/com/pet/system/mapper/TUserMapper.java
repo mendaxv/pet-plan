@@ -1,7 +1,7 @@
 package com.pet.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.pet.system.entity.UserEntity;
+import com.pet.system.model.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Mapper;
 * @Entity com.pet.system.entity.TUser
 */
 @Mapper
-public interface TUserMapper extends BaseMapper<UserEntity> {
+public interface TUserMapper extends BaseMapper<User> {
 
 }
 

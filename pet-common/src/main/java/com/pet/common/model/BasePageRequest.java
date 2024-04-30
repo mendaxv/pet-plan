@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @description 基础分页参数
  */
 @Data
-public class BasePageParam implements Serializable {
+public class BasePageRequest implements Serializable {
 
     /**
      * 页码
@@ -32,7 +32,7 @@ public class BasePageParam implements Serializable {
 
     public void setPageSize(int pageSize) {
         if (pageSize > 10000) {
-            throw new BusinessException("单次查询数量过大");
+            throw new BusinessException("单次查询数据量需在10000以内");
         }
         this.pageSize = pageSize;
     }

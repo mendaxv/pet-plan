@@ -1,6 +1,6 @@
-package com.pet.system.model;
+package com.pet.system.model.request;
 
-import com.pet.common.model.BasePageParam;
+import com.pet.common.model.BasePageRequest;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
@@ -11,7 +11,7 @@ import lombok.Data;
  */
 @Data
 @ApiModel(value = "UserPageSearchParam对象", description = "用户列表查询对象")
-public class UserPageSearchParam extends BasePageParam {
+public class UserPageSearchRequest extends BasePageRequest {
 
     /**
      * 用户名
