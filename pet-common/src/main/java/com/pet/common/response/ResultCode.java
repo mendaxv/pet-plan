@@ -12,13 +12,13 @@ public enum ResultCode {
 
     SUCCESS(0, "请求成功"),
     SYSTEM_ERROR(-1, "系统内部异常"),
-    LOGIN_FAILURE(10000, "登录失败"),
-    LOGIN_SUCCESS(10001, "登录成功"),
-    NOT_LOGIN(10002, "未登录"),
-    NO_AUTH(10003, "无权限"),
-    LOGIN_ACCOUNT_FROZEN(10004, "账号被冻结"),
-    LOGIN_ACCOUNT_ABNORMAL(10005, "账号异常"),
 
+    // 登录相关
+    LOGIN_ACCOUNT_ERROR(10000, "账号错误"),
+    LOGIN_PASSWORD_ERROR(10000, "密码错误"),
+    UN_LOGIN_ERROR(10002, "未登录"),
+    LOGIN_ACCOUNT_FROZEN(10004, "账号被冻结"),
+    LOGIN_ACCOUNT_FORBID(10005, "账号被封禁"),
 
     PARAMS_ERROR(20000, "参数异常"),
     DATA_EMPTY(20001, "数据为空"),

@@ -33,6 +33,5 @@ public class ApplicationStartupInfo implements ApplicationRunner {
         String port = environment.getProperty("server.port");
         String apiDocUrl = StrUtil.format("在线API文档：http://{}:{}/doc.html", ip, port);
         System.out.println(apiDocUrl);
-
     }
 }

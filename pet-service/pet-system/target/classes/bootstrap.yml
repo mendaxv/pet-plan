@@ -7,8 +7,10 @@ spring:
     nacos:
       config:
         server-addr: 127.0.0.1:8848
-        namespace: f8ee4331-a4e3-430a-be68-0817025a0ce6
-        file-extension: yml
-        # 鉴权，用户名&密码
+        namespace: f8ee4331-a4e3-430a-be68-0817025a0ce61
         username: nacos
         password: nacos
+        file-extension: yml
+        # 公共配置
+        shared-configs:
+          - pet-common.yml

@@ -12,10 +12,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum UserStatusEnum {
 
-    NORMAL(0, "正常"),
-    FROZEN(1, "冻结"),
+    NORMAL(1, "正常"),
+    FORBID(2, "封禁"),
     ;
 
     private final Integer code;
-    private final String description;
+    private final String desc;
 }

@@ -1,15 +1,12 @@
 package com.pet.system.controller;
 
 import cn.dev33.satoken.stp.StpUtil;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.pet.common.response.BaseResponse;
 import com.pet.common.response.ResultUtils;
 import com.pet.system.model.dto.LoginUserInfo;
-import com.pet.system.model.entity.User;
-import com.pet.system.model.request.UserLoginRequest;
-import com.pet.system.model.request.UserPageSearchRequest;
-import com.pet.system.model.request.UserRegisterRequest;
-import com.pet.system.service.UserService;
+import com.pet.system.model.request.UserLoginReq;
+import com.pet.system.model.request.UserRegisterReq;
+import com.pet.system.service.TSysUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
@@ -28,36 +25,30 @@ import javax.validation.Valid;
 public class UserController {
 
     @Resource
-    private UserService userService;
+    private TSysUserService sysUserService;
 
     @ApiOperation(value = "用户注册")
     @PutMapping("/register")
-    public BaseResponse<Integer> register(@RequestBody @Valid UserRegisterRequest request) {
-        return ResultUtils.success(userService.register(request));
+    public BaseResponse<Boolean> register(@RequestBody @Valid UserRegisterReq request) {
+        return ResultUtils.success(sysUserService.register(request));
     }
 
     @ApiOperation(value = "用户登录")
     @PostMapping("/login")
-    public BaseResponse<Integer> login(@RequestBody @Valid UserLoginRequest request) {
-        return ResultUtils.success(userService.login(request));
+    public BaseResponse<LoginUserInfo> login(@RequestBody @Valid UserLoginReq request) {
+        return ResultUtils.success(sysUserService.login(request));
     }
 
     @ApiOperation(value = "注销")
     @PostMapping("/logout")
-    public BaseResponse<Void> logout() {
+    public BaseResponse<Boolean> logout() {
         StpUtil.logout();
-        return ResultUtils.success();
+        return ResultUtils.success(true);
     }
 
     @ApiOperation(value = "获取当前登录用户信息")
-    @PostMapping("/currUserInfo")
+    @PostMapping("/currInfo")
     public BaseResponse<LoginUserInfo> getCurrUser() {
-        return ResultUtils.success(userService.getCurrUserInfo());
-    }
-
-    @GetMapping
-    @ApiOperation(value = "获取用户列表")
-    public BaseResponse<Page<User>> listUser(@RequestBody UserPageSearchRequest param) {
-        return ResultUtils.success(userService.listUser(param));
+        return ResultUtils.success(sysUserService.getCurrUserInfo());
     }
 }

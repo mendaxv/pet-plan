@@ -14,7 +14,7 @@ import lombok.Data;
 public class LoginUserInfo {
 
     @ApiModelProperty("用户id")
-    private Integer userId;
+    private Long userId;
 
     @ApiModelProperty("昵称")
     private String nickname;
