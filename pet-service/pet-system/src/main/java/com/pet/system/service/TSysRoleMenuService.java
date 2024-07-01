@@ -18,7 +18,7 @@ public interface TSysRoleMenuService extends IService<TSysRoleMenu> {
      * @param roleIdList 角色ID
      * @return
      */
-    List<TSysRoleMenu> listMenu(List<Long> roleIdList);
+    List<TSysRoleMenu> listRoleMenu(List<Long> roleIdList);
 
-    List<TSysRoleMenu> listMenu(Long roleId);
+    List<TSysRoleMenu> listRoleMenu(Long roleId);
 }

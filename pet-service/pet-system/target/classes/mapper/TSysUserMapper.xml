@@ -4,4 +4,21 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pet.system.mapper.TSysUserMapper">
 
+    <select id="pageUser" resultType="com.pet.system.model.dto.SysUserDto">
+        SELECT *
+        FROM t_sys_user
+        WHERE is_delete = 0
+        -- 筛选项：用户昵称
+        <if test="req.nickname != null and req.nickname != ''">
+            AND nickname LIKE CONCAT('%',#{req.nickname},'%')
+        </if>
+        -- 筛选项：用户账号
+        <if test="req.account != null and req.account != ''">
+            AND account LIKE CONCAT('%',#{req.account},'%')
+        </if>
+        -- 筛选项：手机号
+        <if test="req.phone != null and req.phone != ''">
+            AND phone LIKE CONCAT('%',#{req.phone},'%')
+        </if>
+    </select>
 </mapper>

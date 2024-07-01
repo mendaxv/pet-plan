@@ -4,4 +4,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pet.system.mapper.TSysRoleMapper">
 
+    <select id="pageUser" resultType="com.pet.system.model.dto.SysRoleDto">
+        SELECT *
+        FROM t_sys_role
+        WHERE is_delete = 0
+        -- 筛选项：角色昵称
+        <if test="req.name != null and req.name != ''">
+            AND name LIKE CONCAT('%',#{name},'%')
+        </if>
+        -- 筛选项：角色标识
+        <if test="req.code != null and req.code != ''">
+            AND code LIKE CONCAT('%',#{code},'%')
+        </if>
+    </select>
 </mapper>

@@ -7,7 +7,6 @@ import com.pet.system.model.dto.SysUserDto;
 import com.pet.system.model.entity.TSysUser;
 import com.pet.system.model.request.UserLoginReq;
 import com.pet.system.model.request.UserPageSearchReq;
-import com.pet.system.model.request.UserRegisterReq;
 
 /**
 * @author Administrator
@@ -17,28 +16,28 @@ import com.pet.system.model.request.UserRegisterReq;
 public interface TSysUserService extends IService<TSysUser> {
 
     /**
-     * 用户注册
-     *
-     * @param request 请求入参
-     * @return
-     */
-    Boolean register(UserRegisterReq request);
-
-    /**
      * 用户登录
      *
-     * @param request 请求入参
+     * @param req 请求入参
      * @return
      */
-    LoginUserInfo login(UserLoginReq request);
+    LoginUserInfo login(UserLoginReq req);
 
     /**
      * 分页查询用户列表
      *
-     * @param request 请求入参
+     * @param req 请求入参
      * @return
      */
-    Page<SysUserDto> listUser(UserPageSearchReq request);
+    Page<SysUserDto> pageSearchUser(UserPageSearchReq req);
+
+    /**
+     * 添加用户
+     *
+     * @param sysUserDto
+     * @return
+     */
+    Boolean add(SysUserDto sysUserDto);
 
     /**
      * 根据登录账号查找用户
@@ -54,4 +53,12 @@ public interface TSysUserService extends IService<TSysUser> {
      * @return
      */
     LoginUserInfo getCurrUserInfo();
+
+    /**
+     * 查询用户详情
+     *
+     * @param userId 用户ID
+     * @return SysUserDto
+     */
+    SysUserDto detail(Long userId);
 }

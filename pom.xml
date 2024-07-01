@@ -40,6 +40,7 @@
         <knife4j.version>3.0.3</knife4j.version>
         <sa-token.version>1.37.0</sa-token.version>
         <jsoup.version>1.16.1</jsoup.version>
+        <mapstract.version>1.5.5.Final</mapstract.version>
     </properties>
 
     <dependencyManagement>
@@ -144,6 +145,19 @@
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
                 <version>${sentinel.version}</version>
+            </dependency>
+
+            <!-- mapstruct对象拷贝 -->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstract.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstract.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

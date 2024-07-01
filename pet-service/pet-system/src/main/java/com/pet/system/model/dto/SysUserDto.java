@@ -4,19 +4,17 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import java.util.List;
-
 /**
  * @author zw
  * @date 2024/6/20 19:57
  * @description
  */
 @Data
-@ApiModel("系统设置-用户实体")
+@ApiModel("用户")
 public class SysUserDto {
 
     @ApiModelProperty("用户id")
-    private Long userId;
+    private Long id;
 
     @ApiModelProperty("昵称")
     private String nickname;
@@ -35,10 +33,4 @@ public class SysUserDto {
 
     @ApiModelProperty("状态（1:正常,2:封禁）")
     private Integer status;
-
-    @ApiModelProperty("角色")
-    private List<SysRoleDto> roleList;
-
-    @ApiModelProperty("权限")
-    private List<SysMenuDto> menuList;
 }

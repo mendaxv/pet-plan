@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    nacos:
+      # 注册中心
+      discovery:
+        server-addr: ${spring.cloud.nacos.config.server-addr}
+        namespace: ${spring.cloud.nacos.config.namespace}
+        username: ${spring.cloud.nacos.config.username}
+        password: ${spring.cloud.nacos.config.password}
+    # 网关路由
+    gateway:
+      routes:
+        # 系统服务
+        - id: pet-system
+          uri: lb://pet-system
+          predicates:
+            - Path=/pet-system/**
+          filters:
+            # 去掉部分URL路径
+            - StripPrefix=1

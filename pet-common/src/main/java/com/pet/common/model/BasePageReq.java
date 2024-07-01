@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @description 基础分页参数
  */
 @Data
-public class BasePageRequest implements Serializable {
+public class BasePageReq implements Serializable {
 
     /**
      * 页码

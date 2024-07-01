@@ -22,16 +22,16 @@ public class TSysRoleMenuServiceImpl extends ServiceImpl<TSysRoleMenuMapper, TSy
     implements TSysRoleMenuService {
 
     @Override
-    public List<TSysRoleMenu> listMenu(List<Long> roleIdList) {
-        return this.listRoleMenu(roleIdList);
+    public List<TSysRoleMenu> listRoleMenu(List<Long> roleIdList) {
+        return this.listMenu(roleIdList);
     }
 
     @Override
-    public List<TSysRoleMenu> listMenu(Long roleId) {
-        return this.listRoleMenu(ListUtil.of(roleId));
+    public List<TSysRoleMenu> listRoleMenu(Long roleId) {
+        return this.listMenu(ListUtil.of(roleId));
     }
 
-    private List<TSysRoleMenu> listRoleMenu(List<Long> roleIdList) {
+    private List<TSysRoleMenu> listMenu(List<Long> roleIdList) {
 
         if (CollUtil.isEmpty(roleIdList)) {
             return ListUtil.empty();

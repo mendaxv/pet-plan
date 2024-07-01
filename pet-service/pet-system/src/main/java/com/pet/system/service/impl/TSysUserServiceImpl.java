@@ -9,13 +9,13 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.pet.common.exception.BusinessException;
 import com.pet.common.response.ResultCode;
 import com.pet.system.mapper.TSysUserMapper;
+import com.pet.system.mapstract.IUserMapperStruct;
 import com.pet.system.model.dto.LoginUserInfo;
 import com.pet.system.model.dto.SysUserDto;
 import com.pet.system.model.entity.TSysUser;
 import com.pet.system.model.enums.UserStatusEnum;
 import com.pet.system.model.request.UserLoginReq;
 import com.pet.system.model.request.UserPageSearchReq;
-import com.pet.system.model.request.UserRegisterReq;
 import com.pet.system.service.TSysUserService;
 import org.springframework.stereotype.Service;
 
@@ -30,16 +30,8 @@ import java.util.Optional;
 public class TSysUserServiceImpl extends ServiceImpl<TSysUserMapper, TSysUser> implements TSysUserService{
 
     private static final String SESSION_KEY_USER_INFO = "loginUserInfo";
+    private static final String DEFAULT_PASSWORD = "123456";
 
-    @Override
-    public Boolean register(UserRegisterReq req) {
-        TSysUser user = new TSysUser();
-        user.setNickname(req.getNickname());
-        user.setAccount(req.getAccount());
-        user.setPassword(SecureUtil.md5(req.getPassword()));
-        user.setStatus(UserStatusEnum.NORMAL.getCode());
-        return this.save(user);
-    }
 
     @Override
     public LoginUserInfo login(UserLoginReq request) {
@@ -78,17 +70,20 @@ public class TSysUserServiceImpl extends ServiceImpl<TSysUserMapper, TSysUser> i
     }
 
     @Override
-    public Page<SysUserDto> listUser(UserPageSearchReq req) {
+    public Page<SysUserDto> pageSearchUser(UserPageSearchReq req) {
+        Page<SysUserDto> page = new Page<>(req.getPageNo(), req.getPageSize());
+        return this.getBaseMapper().pageUser(page, req);
+    }
 
-        //Page<TSysUser> page = new Page<>(req.getPageNo(), req.getPageSize());
-        //LambdaQueryWrapper<TSysUser> queryWrapper = Wrappers.<TSysUser>lambdaQuery()
-        //        .eq(TSysUser::getAccount, req.getAccount())
-        //        .eq(TSysUser::getNickname, req.getNickname())
-        //        .eq(TSysUser::getPhone, req.getPhone());
-        //Page<TSysUser> tSysUserPage = this.page(page, queryWrapper);
-
-        // TODO: 用户列表
-        return null;
+    @Override
+    public Boolean add(SysUserDto sysUserDto) {
+        TSysUser tSysUser = new TSysUser();
+        tSysUser.setAccount(sysUserDto.getAccount());
+        tSysUser.setNickname(sysUserDto.getNickname());
+        tSysUser.setPassword(DEFAULT_PASSWORD);
+        tSysUser.setPhone(sysUserDto.getPhone());
+        tSysUser.setStatus(UserStatusEnum.NORMAL.getCode());
+        return this.save(tSysUser);
     }
 
     @Override
@@ -99,6 +94,13 @@ public class TSysUserServiceImpl extends ServiceImpl<TSysUserMapper, TSysUser> i
     @Override
     public LoginUserInfo getCurrUserInfo() {
         return (LoginUserInfo) StpUtil.getSession(true).get(SESSION_KEY_USER_INFO);
+    }
+
+    @Override
+    public SysUserDto detail(Long userId) {
+        TSysUser tSysUser = Optional.ofNullable(this.getById(userId))
+                .orElseThrow(() -> new BusinessException(ResultCode.LOGIN_ACCOUNT_ERROR));
+        return IUserMapperStruct.INSTANCT.entity2Dto(tSysUser);
     }
 }
 

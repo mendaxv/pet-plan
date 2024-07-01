@@ -1,7 +1,8 @@
 package com.pet.system.model.request;
 
-import com.pet.common.model.BasePageRequest;
+import com.pet.common.model.BasePageReq;
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
@@ -10,21 +11,15 @@ import lombok.Data;
  * @description 用户列表分页查询
  */
 @Data
-@ApiModel(value = "UserPageSearchParam对象", description = "用户列表查询对象")
-public class UserPageSearchReq extends BasePageRequest {
+@ApiModel(value = "UserPageSearchReq对象", description = "用户列表查询对象")
+public class UserPageSearchReq extends BasePageReq {
 
-    /**
-     * 账号
-     */
+    @ApiModelProperty(name = "用户账号")
     private String account;
 
-    /**
-     * 昵称
-     */
+    @ApiModelProperty(name = "用户昵称")
     private String nickname;
 
-    /**
-     * 手机号
-     */
+    @ApiModelProperty(name = "用户手机号")
     private String phone;
 }

@@ -26,7 +26,6 @@ public class TSysMenuServiceImpl extends ServiceImpl<TSysMenuMapper, TSysMenu>
     @Resource
     private TSysRoleMenuService sysRoleMenuService;
 
-
     @Override
     public List<TSysMenu> listMenu(List<Long> roleIdList) {
         return this.listRoleMenu(roleIdList);
@@ -43,7 +42,7 @@ public class TSysMenuServiceImpl extends ServiceImpl<TSysMenuMapper, TSysMenu>
             return ListUtil.empty();
         }
 
-        List<Long> menuIdList = sysRoleMenuService.listMenu(roleIdList).stream()
+        List<Long> menuIdList = sysRoleMenuService.listRoleMenu(roleIdList).stream()
                 .map(TSysRoleMenu::getMenuId).collect(Collectors.toList());
         if (CollUtil.isEmpty(menuIdList)) {
             return ListUtil.empty();
