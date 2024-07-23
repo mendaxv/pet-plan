@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.pidan</groupId>
+    <artifactId>pet-plan</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>pet-plan</name>
+    <description>A social e-commerce project about pets</description>
+
+    <modules>
+        <module>pet-common</module>
+      <module>pet-gateway</module>
+        <module>pet-service</module>
+        <module>pet-service/pet-system</module>
+        <module>pet-service/pet-user</module>
+        <module>pet-service/pet-web</module>
+        <module>pet-service-api</module>
+        <module>pet-service-api/pet-system-api</module>
+        <module>pet-service-api/pet-user-api</module>
+        <module>pet-service-api/pet-web-api</module>
+    </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
