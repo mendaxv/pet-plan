@@ -5,9 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.pidan</groupId>
-        <artifactId>pet-plan</artifactId>
+        <artifactId>pet-service</artifactId>
         <version>1.0.0-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <artifactId>pet-system</artifactId>
@@ -19,4 +18,15 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+    </dependencies>
 </project>

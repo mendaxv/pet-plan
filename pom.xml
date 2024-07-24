@@ -14,13 +14,7 @@
         <module>pet-common</module>
         <module>pet-gateway</module>
         <module>pet-service</module>
-        <module>pet-service/pet-system</module>
-        <module>pet-service/pet-user</module>
-        <module>pet-service/pet-web</module>
         <module>pet-rpc-api</module>
-        <module>pet-rpc-api/pet-system-rpc-api</module>
-        <module>pet-rpc-api/pet-user-rpc-api</module>
-        <module>pet-rpc-api/pet-web-rpc-api</module>
     </modules>
 
     <properties>
@@ -28,11 +22,68 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <pet-common.version>1.0.0-SNAPSHOT</pet-common.version>
+        <!-- cloud版本说明：https://github.com/alibaba/spring-cloud-alibaba/wiki/版本说明 -->
+        <spring-boot.version>2.6.13</spring-boot.version>
+        <spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
+        <spring-cloud.version>2021.0.5</spring-cloud.version>
+        <hutool-all.version>5.8.22</hutool-all.version>
+        <lombok.version>1.18.28</lombok.version>
+        <mybatis-plus.version>3.5.2</mybatis-plus.version>
+        <mysql.version>8.0.25</mysql.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool-all.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <!-- 数据库：MySQL -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <!-- mybatis-plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

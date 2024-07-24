@@ -10,7 +10,14 @@
     </parent>
 
     <artifactId>pet-rpc-api</artifactId>
+    <packaging>pom</packaging>
     <description>API接口定义模块</description>
+
+    <modules>
+        <module>pet-system-rpc-api</module>
+        <module>pet-user-rpc-api</module>
+        <module>pet-web-rpc-api</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

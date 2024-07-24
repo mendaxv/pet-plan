@@ -1,0 +1,14 @@
+server:
+  port: 10200
+spring:
+  application:
+    name: pet-system
+  profiles:
+    active: test
+  cloud:
+    nacos:
+      config:
+        file-extension: yml
+        # 公共配置
+        shared-configs:
+          - pet-common.yml
