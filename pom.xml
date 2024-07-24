@@ -12,15 +12,15 @@
 
     <modules>
         <module>pet-common</module>
-      <module>pet-gateway</module>
+        <module>pet-gateway</module>
         <module>pet-service</module>
         <module>pet-service/pet-system</module>
         <module>pet-service/pet-user</module>
         <module>pet-service/pet-web</module>
-        <module>pet-service-api</module>
-        <module>pet-service-api/pet-system-api</module>
-        <module>pet-service-api/pet-user-api</module>
-        <module>pet-service-api/pet-web-api</module>
+        <module>pet-rpc-api</module>
+        <module>pet-rpc-api/pet-system-rpc-api</module>
+        <module>pet-rpc-api/pet-user-rpc-api</module>
+        <module>pet-rpc-api/pet-web-rpc-api</module>
     </modules>
 
     <properties>
