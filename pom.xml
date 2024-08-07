@@ -31,6 +31,7 @@
         <lombok.version>1.18.28</lombok.version>
         <mybatis-plus.version>3.5.2</mybatis-plus.version>
         <mysql.version>8.0.25</mysql.version>
+        <pet-common.version>1.0.0-SNAPSHOT</pet-common.version>
     </properties>
 
     <dependencyManagement>
@@ -83,6 +84,12 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.pidan</groupId>
+                <artifactId>pet-common</artifactId>
+                <version>${pet-common.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
