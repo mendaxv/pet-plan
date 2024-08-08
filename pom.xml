@@ -32,6 +32,7 @@
         <mybatis-plus.version>3.5.2</mybatis-plus.version>
         <mysql.version>8.0.25</mysql.version>
         <pet-common.version>1.0.0-SNAPSHOT</pet-common.version>
+        <knife4j-openapi2.version>4.4.0</knife4j-openapi2.version>
     </properties>
 
     <dependencyManagement>
@@ -79,7 +80,7 @@
                 <version>${mysql.version}</version>
             </dependency>
 
-            <!-- mybatis-plus -->
+            <!-- 数据持久化：mybatis-plus-->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
@@ -90,6 +91,13 @@
                 <groupId>com.pidan</groupId>
                 <artifactId>pet-common</artifactId>
                 <version>${pet-common.version}</version>
+            </dependency>
+
+            <!-- 在线文档：knife4j -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-openapi2-spring-boot-starter</artifactId>
+                <version>${knife4j-openapi2.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
