@@ -3,7 +3,7 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: 127.0.0.1:8848
-        namespace: f8ee4331-a4e3-430a-be68-0817025a0ce6
+        server-addr: http://47.122.115.230:8848
+        namespace: f3508471-aff1-4e49-88b2-8dc0a9874db8
         username: nacos
-        password: nacos
+        password: pet-plan-man
